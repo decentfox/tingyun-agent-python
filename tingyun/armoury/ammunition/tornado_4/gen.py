@@ -15,7 +15,7 @@ console = logging.getLogger(__name__)
 try:
     import sys
     get_frame = sys._getframe
-except Exception, _:
+except Exception as _:
     console.warning('You are using a python implementation without sys._getframe.')
     import inspect
 
