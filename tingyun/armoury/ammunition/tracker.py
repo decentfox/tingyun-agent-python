@@ -130,18 +130,18 @@ class Tracker(object):
 
         self.trace_node.append(Timer(None))
 
-    def __exit__(self, exc_type, exc_val, exc_tb, async=False):
+    def __exit__(self, exc_type, exc_val, exc_tb, async_=False):
         """
         :param exc_type:
         :param exc_val:
         :param exc_tb:
-        :param async: in tornado, the tracker is not saved in thread cache
+        :param async_: in tornado, the tracker is not saved in thread cache
         :return:
         """
         if not self.enabled:
             return
 
-        if not async:
+        if not async_:
             try:
                 self.drop_tracker()
             except Exception as err:

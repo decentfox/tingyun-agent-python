@@ -223,14 +223,15 @@ class Tracer(Tracker):
         """
         self.__enter__()
 
-    def finish_work(self, exc_type, exc_val, exc_tb, async=False):
+    def finish_work(self, exc_type, exc_val, exc_tb, async_=False):
         """
         :param exc_type:
         :param exc_val:
         :param exc_tb:
+        :param async_:
         :return:
         """
-        self.__exit__(exc_type, exc_val, exc_tb, async)
+        self.__exit__(exc_type, exc_val, exc_tb, async_)
 
     def generate_agent_param(self):
         """
