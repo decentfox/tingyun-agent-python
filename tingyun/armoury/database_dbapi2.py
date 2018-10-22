@@ -381,7 +381,9 @@ def detect(module):
             :return:
             """
             self.connect_instance = self.connect(*args, **kwargs)
-            return TingYunConnection(self.connect_instance, (args, kwargs))
+            cxn = TingYunConnection(self.connect_instance, (args, kwargs))
+            object.__setattr__(cxn, '_sqla_unwrap', cxn.connection)
+            return cxn
 
     # Check if module is already wrapped
     if hasattr(module, '_self_dbapi2_wrapped'):
